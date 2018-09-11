@@ -14,7 +14,7 @@ In order to address these issues, I have integrated Distributed Management Task 
 
 The following diagram shows that architecture of Nagios Redfish API integration.
 
-![picture alt](https://github.com/nsfcac/Nagios-Redfish-API-Integration/tree/master/imgs/arch.png "Nagios and Redfish API Integration Architecture")
+![picture alt](https://github.com/nsfcac/Nagios-Redfish-API-Integration/tree/master/imgs/arch.png?raw=true "Nagios and Redfish API Integration Architecture")
 
 It consists of three layers: 
 Markup : 1. Nagios core is a configurable monitoring framework which supports thousands of monitoring plugins. It does check scheduling, check execution, check processing, event handling, and alerting.
