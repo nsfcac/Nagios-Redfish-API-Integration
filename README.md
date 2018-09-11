@@ -35,9 +35,11 @@ It consists of three layers:
 
 ## Instllation Prerequisites	
 
-This project assumes that (Redfish API enabled) BMC network is up or simulated environment with [Redfish Mockup servers](https://github.com/DMTF/Redfish-Mockup-Server)is configured and available.
+This project assumes that Redfish API enabled BMC endpoints are configured and available. Alternatively or in addition, a simulated environment with [Redfish Mockup servers](https://github.com/DMTF/Redfish-Mockup-Server) may be used for testing and development of plugins.
 
 This user guide assumes CentOS 7.4 for the installation of Nagios Core and Redfish-based plugins. However, other Linux distributions (e.g. Ubuntu) are also supported.
+
+The examples give make use of [jq](https://stedolan.github.io/jq/) to parse JSON output from Redfish calls. This should be availabel in the Nagios enviornment, or another JSON parser may be used with appropriate changes to the plugins.
 
 ----
 
