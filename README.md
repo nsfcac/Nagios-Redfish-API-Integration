@@ -3,10 +3,15 @@
 ## Introduction
 
 [Nagios](https://www.nagios.org/) is an industry standard for HPC infrastructure monitoring including hosts and associated hardware components, networks, storages, services, and applications. However, there are significant issues with traditional Nagios over all solution including:
+
 * Nagios requires human intervention for the definition and maintenance of remote hosts configurations in Nagios Core. 
+
 * It requires Nagios Remote Plugin Executor (NRPE) on Nagios Server and each monitored remote host. 
+
 * It also mandates Nagios Service Check Acceptor (NSCA) on each monitored remote host.
+
 * And also requires Check specific agents (e.g. SNMP) on each monitored remoted host.
+
 
 In order to address these issues, I have integrated Distributed Management Task Force (DMTF)’s [Redfish API](https://redfish.dmtf.org) with Nagios core. DMTF's Redfish API is an open industry standard specification and schema designed to meet the expectations of end users for simple, modern and secure management of scalable platform hardware. Redfish API is essentially out-of-band protocol which is implemented in baseboard management controller (BMC) of the High Performance Computing (HPC) system. Redfish-based plugins for Nagios will be directly communicating to BMC so it eliminates the requirement of any agent and configuration on remote hosts. Redfish API integration with Nagios is potentially a huge paradigm shift in Nagios based monitoring in terms of:
 
@@ -173,6 +178,7 @@ You will be prompted for a username and password. The username is nagiosadmin (y
 
 ![picture alt](imgs/nagios_installation_test.jpg "Nagios Web Interface (Test)")
 
+You are done with Nagios Core Installation :thumbsup:
 
 ----
 
@@ -183,7 +189,7 @@ You will be prompted for a username and password. The username is nagiosadmin (y
 
 This setup requires to use the pre-configured configuration files in objects directory available in this repository. To use pre-configured settings, replace the default objects directory at path: usr/local/nagios/etc/objects/ with the objects directory in this repository. The objects directory in this repository includes all the configuration files in the default objects directory. The only difference is that the configuration files in the repository objects directory are preconfigured. This objects directory also adds hosts.cfg file which contains hosts and services information. 2nd step of configuring hosts for Nagios monitoring (below) describes procedures regarding generation of hosts and related services related information in hosts.cfg.
 
-### Configuring hosts and services for Nagios monitoring
+### Auto-generating hosts and services informations for Nagios monitoring
 
 In order to enable Redfish-based Nagios monitoring of all hosts and related services, host information and service information are defined in hosts.cfg. This process consists of two steps:
 
@@ -209,6 +215,8 @@ This setup requires to use the pre-configured nagios.cfg available in this repos
 
 ![picture alt](imgs/hostscfg.jpg "Hosts File Path Configuration")
 
+
+You are done with Nagios Core Nagios Core Configurations :thumbsup:
 
 ----
 
@@ -259,6 +267,8 @@ All the Redfish-based plugins located in redfishplugins directory in this reposi
 All the plugins need to change the ownership and executable rights using the following commands:
 
 ![picture alt](imgs/chmod.jpg "Host Configuration")
+
+You are done with deployment of Redfish plugins :thumbsup:
 
 ----
 
@@ -330,11 +340,13 @@ The following diagram shows the Nagios performance. The check latency is zero an
 
 ![picture alt](imgs/nagiosperf.jpg "Nagios Performance View")
 
+Keep Enjoying Monitoring your network with DMTF Redfish API and strives for the best :thumbsup:
+
 ----
 
 ## Technical Support
 
-In case of any technical issue in reproducing these results, you are welcome to contact TTU developer: ghazanfar.ali@ttu.edu  
+In case of any technical issue in reproducing these results, you are welcome to contact Texas Tech University (TTU) developer: ghazanfar.ali@ttu.edu  
 
 ----
 
