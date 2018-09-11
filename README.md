@@ -39,7 +39,7 @@ This project assumes that Redfish API enabled BMC endpoints are configured and a
 
 This user guide assumes CentOS 7.4 for the installation of Nagios Core and Redfish-based plugins. However, other Linux distributions (e.g. Ubuntu) are also supported.
 
-The examples give make use of [jq](https://stedolan.github.io/jq/) to parse JSON output from Redfish calls. This should be availabel in the Nagios enviornment, or another JSON parser may be used with appropriate changes to the plugins.
+The examples give make use of [jq](https://stedolan.github.io/jq/) to parse JSON output from Redfish calls. This should be available in the Nagios enviornment, or another JSON parser may be used with appropriate changes to the plugins.
 
 ----
 
