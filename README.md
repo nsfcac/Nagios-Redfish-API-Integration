@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[Nagios](https://www.nagios.org/) is an industry standard for HPC infrastructure monitoring including hosts and associated hardware components, networks, storages, services, and applications. However, there are significant issues with traditional Nagios over all solution including:
+[Nagios](https://www.nagios.org/) is commonly used industry tool for HPC infrastructure monitoring including hosts and associated hardware components, networks, storages, services, and applications. However, there are significant issues with traditional Nagios over all solution including:
 
 * Nagios requires human intervention for the definition and maintenance of remote hosts configurations in Nagios Core. 
 
