@@ -340,7 +340,7 @@ The following diagram shows the Nagios performance. The check latency is zero an
 
 ![picture alt](imgs/nagiosperf.jpg "Nagios Performance View")
 
-Keep Enjoying Monitoring your network with DMTF Redfish API and strives for the best :thumbsup:
+Enjoy monitoring your network with DMTF Redfish API and Nagios Core. :smile:
 
 ----
 
