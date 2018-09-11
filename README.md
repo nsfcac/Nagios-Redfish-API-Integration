@@ -9,7 +9,9 @@
 * And also requires Check specific agents (e.g. SNMP) on each monitored remoted host.
 
 In order to address these issues, I have integrated Distributed Management Task Force (DMTF)’s [Redfish API](https://redfish.dmtf.org) with Nagios core. DMTF's Redfish API is an open industry standard specification and schema designed to meet the expectations of end users for simple, modern and secure management of scalable platform hardware. Redfish API is essentially out-of-band protocol which is implemented in baseboard management controller (BMC) of the High Performance Computing (HPC) system. Redfish-based plugins for Nagios will be directly communicating to BMC so it eliminates the requirement of any agent and configuration on remote hosts. Redfish API integration with Nagios is potentially a huge paradigm shift in Nagios based monitoring in terms of:
+
 *	simplifying communication between Nagios server and monitored hosts; and 
+
 *	eliminating computational cost & complexity of running Nagios native protocols (NRPE & NSCA) and other agents (SNMP) on the monitored hosts.
 
 The following diagram shows that architecture of Nagios Redfish API integration.
@@ -17,16 +19,23 @@ The following diagram shows that architecture of Nagios Redfish API integration.
 ![picture alt](imgs/arch.png "Nagios and Redfish API Integration Architecture")
 
 It consists of three layers: 
-Markup : 1. Nagios core is a configurable monitoring framework which supports thousands of monitoring plugins. It does check scheduling, check execution, check processing, event handling, and alerting.
-		 2. Plugins are compiled executables or scripts and act as an abstraction layer between the monitoring logic present in the Nagios Core and HPC infrastructure.
-		 3. HPC infrastructure consists of Redfish-enabled hosts, host components (e.g. BMC, CPU, memory, storage), services, and applications. Redfish-enabled HPC implies that HPC host’s BMC supports Redfish API.  Nagios Core communicates to Redfish API plugins via internal interface. In turn, plugins communicate to HPC monitored entities via Redfish APIs.
 
+1. Nagios core is a configurable monitoring framework which supports thousands of monitoring plugins. It does check scheduling, check execution, check processing, event handling, and alerting.
+
+2. Plugins are compiled executables or scripts and act as an abstraction layer between the monitoring logic present in the Nagios Core and HPC infrastructure.
+
+3. HPC infrastructure consists of Redfish-enabled hosts, host components (e.g. BMC, CPU, memory, storage), services, and applications. Redfish-enabled HPC implies that HPC host’s BMC supports Redfish API.  Nagios Core communicates to Redfish API plugins via internal interface. In turn, plugins communicate to HPC monitored entities via Redfish APIs.
+
+----
 
 ## Instllation Prerequisites	
 
 This project assumes that (Redfish API enabled) BMC network is up or simulated environment with [Redfish Mockup servers](https://github.com/DMTF/Redfish-Mockup-Server)is configured and available.
 
 This user guide assumes CentOS 7.4 for the installation of Nagios Core and Redfish-based plugins. However, other Linux distributions (e.g. Ubuntu) are also supported.
+
+----
+
 
 ## Nagios Core Installation
 
@@ -165,7 +174,7 @@ You will be prompted for a username and password. The username is nagiosadmin (y
 ![picture alt](imgs/nagios_installation_test.jpg "Nagios Web Interface (Test)")
 
 
----
+----
 
 
 ## Nagios Core Specific Configuration
@@ -192,7 +201,7 @@ As a successful outcome of step 2 (above), the host information (first host) inc
 
 As a successful outcome of step 2 (above), the service information (one of service of compute 1) including host name and check_command in hosts.cfg is defined as shown below:
 
-![picture alt](imgs/servicesservices.jpg "Service Configuration")
+![picture alt](imgs/services.jpg "Service Configuration")
 
 ### Replacing “nagios.cfg” file
 
@@ -201,7 +210,7 @@ This setup requires to use the pre-configured nagios.cfg available in this repos
 ![picture alt](imgs/hostscfg.jpg "Hosts File Path Configuration")
 
 
----
+----
 
 ## Redfish-based Plugins and their Deployment
 
@@ -251,8 +260,7 @@ All the plugins need to change the ownership and executable rights using the fol
 
 ![picture alt](imgs/chmod.jpg "Host Configuration")
 
-
----
+----
 
 ## Verifying Nagios Configuration
 
@@ -264,18 +272,19 @@ https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/verifyconfig
 
 The successful outcome of above command is expected to be 0 errors and 0 warning.
 
+----
 
 ## Re-starting Nagios Server and Nagios Server Web Interface
 
 After verifying Nagios configuration, Nagios Core is ready to start monitoring information of hosts and related services.
 
-### Restart the Apache Service
+### Restart Apache Service
 
 ```
 systemctl restart httpd.service
 ```
 
-### Restart the Nagios Service:
+### Restart Nagios Service:
 
 ```
 systemctl restart nagios.service
@@ -284,7 +293,7 @@ systemctl restart nagios.service
 Nagios is now running, to see the host and their services log into the Nagios Web Interface.
 
 
-### Nagios Web Interface:
+### Nagios Web Interface
 
 Point your web browser to the ip address or FQDN of your Nagios Core server, for example:
 
@@ -321,9 +330,13 @@ The following diagram shows the Nagios performance. The check latency is zero an
 
 ![picture alt](imgs/nagiosperf.jpg "Nagios Performance View")
 
+----
+
 ## Technical Support
 
 In case of any technical issue in reproducing these results, you are welcome to contact TTU developer: ghazanfar.ali@ttu.edu  
+
+----
 
 ## Authors and Contributors
 
@@ -335,12 +348,17 @@ In case of any technical issue in reproducing these results, you are welcome to 
 
 * Dr. Yong Chen, Associate Professor, [CS Dept, Whitacre College of Engineering, Texas Tech University](http://www.depts.ttu.edu/cs/)
 
+----
 
 ##  License
 
 This project is licensed under [BSD 3-Clause License](https://github.com/nsfcac/Nagios-Redfish-API-Integration/blob/master/LICENSE)
 
+----
 
 ## Acknowledgments
 
 Thanks to Dell, Inc, DMTF Redfish Forum, and Nagios.org for their continuous support and contributions for the development, deployment and testing of this work.
+
+
+----
