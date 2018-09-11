@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[Nagios](https://www.nagios.org/) is an industry standard for HPC infrastructure monitoring including hosts and associated hardware components, networks, storages, services, and applications. However, there are significant issues with traditional Nagios over all solution including:
+[Nagios](https://www.nagios.org/) is commonly used industry tool for HPC infrastructure monitoring including hosts and associated hardware components, networks, storages, services, and applications. However, there are significant issues with traditional Nagios over all solution including:
 
 * Nagios requires human intervention for the definition and maintenance of remote hosts configurations in Nagios Core. 
 
@@ -35,9 +35,11 @@ It consists of three layers:
 
 ## Instllation Prerequisites	
 
-This project assumes that (Redfish API enabled) BMC network is up or simulated environment with [Redfish Mockup servers](https://github.com/DMTF/Redfish-Mockup-Server)is configured and available.
+This project assumes that Redfish API enabled BMC endpoints are configured and available. Alternatively or in addition, a simulated environment with [Redfish Mockup servers](https://github.com/DMTF/Redfish-Mockup-Server) may be used for testing and development of plugins.
 
 This user guide assumes CentOS 7.4 for the installation of Nagios Core and Redfish-based plugins. However, other Linux distributions (e.g. Ubuntu) are also supported.
+
+The examples given make use of [jq](https://stedolan.github.io/jq/) to parse JSON output from Redfish calls. This should be available in the Nagios enviornment, or another JSON parser may be used with appropriate changes to the plugins.
 
 ----
 
@@ -46,7 +48,7 @@ This user guide assumes CentOS 7.4 for the installation of Nagios Core and Redfi
 
 Nagios Core is installed on CentOS as described @ https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#CentOS . 
 
-*Note: This project doesn’t require installation of Nagios plugins, so it can be skipped. In case you are not root user, use SUDO to execute the commands below.*
+*Note: This project doesn’t require installation of Nagios plugins, so it can be skipped. In case you are not root user, use "sudo" to execute the commands below.*
 
 ### Security-Enhanced Linux
 
