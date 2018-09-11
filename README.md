@@ -191,6 +191,8 @@ This setup requires to use the pre-configured configuration files in objects dir
 
 ### Auto-generating hosts and services informations for Nagios monitoring
 
+*NOTE: nagnodeconfig.py requires Python 3.x.*
+
 In order to enable Redfish-based Nagios monitoring of all hosts and related services, host information and service information are defined in hosts.cfg. This process consists of two steps:
 
 1.	Acquiring host names and IP addresses of host BMCs: This document does not mandate a specific mechanism to acquire BMC addresses and host names. There could be many ways to acquire BMC addresses including BMC IP addresses from the OpenHPC installation recipe, Redfish discovery capability, derivation (i.e. mapping) of BMC IP addresses from OpenHPC master nodes’ hosts information (i.e. /etc/hosts/) from master node of OpenHPC. Host names and BMC IP addresses are stored in nagios_node_config.conf file. The new hosts, which need to be configured for Nagios monitoring are listed in [new_nodes] section. Host’s information are listed comma separated as ‘IP:hostname’:
@@ -224,6 +226,7 @@ You are done with Nagios Core Nagios Core Configurations :thumbsup:
 
 The following is the list of the Redfish-based plugins currently supported.
 
+*NOTE: The Redfish plugins requires [jq tool](https://centos.pkgs.org/7/epel-x86_64/jq-1.5-1.el7.x86_64.rpm.html).*
 
 ### Check BMC Health
 
