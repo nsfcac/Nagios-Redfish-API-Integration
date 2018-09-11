@@ -190,15 +190,15 @@ As a successful outcome of step 2 (above), the host information (first host) inc
 
 ![picture alt](imgs/host.jpg "Host Configuration")
 
-As a successful outcome of above step 2 (above), the service information (one of service of compute 1) including host name and check_command in hosts.cfg is defined as shown below:
+As a successful outcome of step 2 (above), the service information (one of service of compute 1) including host name and check_command in hosts.cfg is defined as shown below:
 
-[picture alt](imgs/services.jpg "Service Configuration")
+![picture alt](imgs/servicesservices.jpg "Service Configuration")
 
 ### Replacing “nagios.cfg” file
 
 This setup requires to use the pre-configured nagios.cfg available in this repository. To use pre-configured nagios.cfg, replace the default nagios.cfg at path: usr/local/nagios/etc/ with the nagios.cfg in this repository. There is no difference between nagios.cfg in this repository and default nagios.cfg except nagios.cfg in the repository adds hosts.cfg path as shown below.
 
-[picture alt](imgs/hostscfg.jpg "Hosts File Path Configuration")
+![picture alt](imgs/hostscfg.jpg "Hosts File Path Configuration")
 
 
 ---
@@ -237,7 +237,7 @@ This plugin monitors CPU temperature using Redfish API.
 
 The source code of check Temperature plugin is shown below:
 
-[picture alt](imgs/plugincode.png "Redfish Plugins code for Nagios")
+![picture alt](imgs/plugincode.png "Redfish Plugins code for Nagios")
 
 *NOTE: For the sake of successful execution of the plugins, it is required to change the password of the BMC in the Redfish command as underlined above (in red color) in all plugins.*
 
@@ -245,11 +245,11 @@ The source code of check Temperature plugin is shown below:
 
 All the Redfish-based plugins located in redfishplugins directory in this repository are moved to path: /usr/local/nagios/libexec/
 
-[picture alt](imgs/plugins.jpg "Redfish Plugins")
+![picture alt](imgs/plugins.jpg "Redfish Plugins")
 
 All the plugins need to change the ownership and executable rights using the following commands:
 
-[picture alt](imgs/chmod.jpg "Host Configuration")
+![picture alt](imgs/chmod.jpg "Host Configuration")
 
 
 ---
@@ -301,25 +301,25 @@ Once you have logged in you are presented with the Nagios interface.
 
 Once The following diagram shows the Nagios dash board where admin can have summary of status of hosts and their services in terms of UP/Down (hosts) & OK/Warning/Critical (services).
 
-[picture alt](imgs/dashboard.png "Nagios Dashboard")
+![picture alt](imgs/dashboard.png "Nagios Dashboard")
 
 ### Host View
 
 The following diagram shows the host status
 
-[picture alt](imgs/hostview.jpg "Host Monitoring View in Nagios Web Interface")
+![picture alt](imgs/hostview.jpg "Host Monitoring View in Nagios Web Interface")
 
 ### Host services View
 
 The following diagram shows the status of services attached to a host:
 
-[picture alt](imgs/serviceview.jpg "Host's services Monitoring View in Nagios Web Interface")
+![picture alt](imgs/serviceview.jpg "Host's services Monitoring View in Nagios Web Interface")
 
 ### Nagios Performance View
 
 The following diagram shows the Nagios performance. The check latency is zero and check execution time varies from 0.54 sec to 61.01 sec.
 
-[picture alt](imgs/nagiosperf.jpg "Nagios Performance View")
+![picture alt](imgs/nagiosperf.jpg "Nagios Performance View")
 
 ## Technical Support
 
