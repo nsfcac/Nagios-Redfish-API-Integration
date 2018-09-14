@@ -1,6 +1,8 @@
 #!/bin/bash
 
-health=$(curl -k https://$1/redfish/v1/Managers/iDRAC.Embedded.1 -u root:redfish | jq '.Status|.Health' | sed 's/"//g')
+manager_uri=$(curl -k https://$1/redfish/v1/Managers/ -u root:redfish | jq '.Members|.[0]|."@odata.id"' | sed 's/"//g')
+
+health=$(curl -k https://$1$manager_uri -u root:redfish | jq '.Status|.Health' | sed 's/"//g')
 
 if [ "$health" == "OK" ]; then
                 echo "OK - BMC working correctly!"

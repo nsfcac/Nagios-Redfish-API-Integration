@@ -1,6 +1,8 @@
 #!/bin/bash
 
-health=$(curl -k https://$1/redfish/v1/Systems/System.Embedded.1/ -u root:redfish | jq '.ProcessorSummary|.Status|.Health' | sed 's/"//g')
+system_uri=$(curl -k https://$1/redfish/v1/Systems/ -u root:redfish | jq '.Members|.[0]|."@odata.id"' | sed 's/"//g')
+
+health=$(curl -k https://$1$system_uri -u root:redfish | jq '.ProcessorSummary|.Status|.Health' | sed 's/"//g')
 
 if [ "$health" == "OK" ]; then
                 echo "OK - CPU working correctly!"

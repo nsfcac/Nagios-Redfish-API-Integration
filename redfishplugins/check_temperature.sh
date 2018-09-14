@@ -1,6 +1,9 @@
 #!/bin/bash
 
-health=$(curl -k https://$1/redfish/v1/Chassis/System.Embedded.1/Thermal/ -u root:redfish | jq '.Temperatures[]|(.Name,.ReadingCelsius,(.Status|.Health))' | sed 's/"//g')
+chassis_uri=$(curl -k https://$1/redfish/v1/Chassis/ -u root:redfish | jq '.Members|.[0]|."@odata.id"' | sed 's/"//g')
+
+health=$(curl -k https://$1$chassis_uri/Thermal/ -u root:redfish | jq '.Temperatures[]|(.Name,.ReadingCelsius,(.Status|\
+.Health))' | sed 's/"//g')
 	
 if [[ $health == *"Critical"* ]] ; then
   severity='Critical'
