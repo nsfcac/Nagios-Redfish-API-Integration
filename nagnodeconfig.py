@@ -36,7 +36,7 @@ else:
         file.write("\n\tuse\tlocal-service")
         file.write("\n\thost_name\t"+name)
         file.write("\nservice_description\tcheck bmc health")
-        file.write("\ncheck_command\tcheck-bmc-health")
+        file.write("\ncheck_command\tcheck-bmc")
         file.write("\n\t}")
 
         # CPU Check
@@ -44,7 +44,7 @@ else:
         file.write("\n\tuse\tlocal-service")
         file.write("\n\thost_name\t"+name)
         file.write("\nservice_description\tcheck cpu health")
-        file.write("\ncheck_command\tcheck-cpu-health")
+        file.write("\ncheck_command\tcheck-cpu")
         file.write("\n\t}")
 
         # Memory Check
@@ -52,16 +52,25 @@ else:
         file.write("\n\tuse\tlocal-service")
         file.write("\n\thost_name\t"+name)
         file.write("\nservice_description\tcheck memory health")
-        file.write("\ncheck_command\tcheck-memory-health")
+        file.write("\ncheck_command\tcheck-memory")
         file.write("\n\t}")
 
-        # Storage Check
+        # Fan Check
         file.write("\ndefine service{") 
         file.write("\n\tuse\tlocal-service")
         file.write("\n\thost_name\t"+name)
-        file.write("\nservice_description\tcheck storage health")
-        file.write("\ncheck_command\tcheck-storage-health")
+        file.write("\nservice_description\tcheck fans health")
+        file.write("\ncheck_command\tcheck-fans")
+	file.write("\n\t}")
+	
+	# Temperature Check
+	file.write("\ndefine service{")
+	file.write("\n\tuse\tlocal-service")
+	file.write("\n\thost_name\t"+name)
+	file.write("\nservice_description\tcheck temperature")
+	file.write("\ncheck_command\tcheck-temperature")
         file.write("\n\t}")
+	
         time.sleep(1)
 
     file.close() 
